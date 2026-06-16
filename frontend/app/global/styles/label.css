@@ -1,0 +1,86 @@
+.angled-shape {
+  --angle: calc(var(--h) * 0.57735);
+
+  height: var(--h);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+
+/* Manage size */
+.angled-shape--sm {
+  --h: 29px;
+}
+
+.angled-shape--lg {
+  --h: 56px;
+}
+
+
+
+/* Manage angle */
+/* left side angled */
+.angled-shape--left {
+  clip-path: polygon(
+    var(--angle) 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+  text-align: right;
+}
+
+/* right side angled */
+.angled-shape--right {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--angle)) 0,
+    100% 100%,
+    0 100%
+  );
+  text-align: left;
+}
+
+/* left side angled opposite */
+.angled-shape--left-reverse {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    var(--angle) 100%
+  );
+  text-align: right;
+}
+
+/* right side angled opposite */
+.angled-shape--right-reverse {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - var(--angle)) 100%,
+    0 100%
+  );
+  text-align: left;
+}
+
+/* both sides angled at the top */
+.angled-shape--both {
+  clip-path: polygon(
+    var(--angle) 0,
+    calc(100% - var(--angle)) 0,
+    100% 100%,
+    0 100%
+  );
+  text-align: center;
+}
+
+/* both sides angled at the bottom */
+.angled-shape--both-reverse {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - var(--angle)) 100%,
+    var(--angle) 100%
+  );
+  text-align: center;
+}
