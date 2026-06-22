@@ -9,8 +9,8 @@ def db():
         db = mysql.connector.connect(
             host = os.getenv("DB_HOST"),
             user = os.getenv("DB_USER"),  
-            password = "DB_PASSWORD",
-            database = "DB_NAME"
+            password = os.getenv("DB_PASSWORD"),
+            database = os.getenv("DB_NAME")
         )
         cursor = db.cursor(dictionary=True)
         return db, cursor
