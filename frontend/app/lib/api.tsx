@@ -12,7 +12,10 @@ axios.defaults.withCredentials = true;
 
 
 // Base URL for the Flask backend (set in .env). Runs client-side, so it must be NEXT_PUBLIC_.
-const BACKEND_URL = (globalThis as any)?.process?.env?.NEXT_PUBLIC_BACKEND_URL;
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+if (!BACKEND_URL) {
+  throw Error("Cannot find path")
+}
 
 // Session
 export async function api_user(): Promise<User> {
